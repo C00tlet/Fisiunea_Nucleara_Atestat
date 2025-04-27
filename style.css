@@ -1,12 +1,16 @@
-/* Global Styles */
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url("https://i.imgur.com/JTTiPa1.jpeg");
+  font-family: 'Segoe UI', sans-serif;
   background-color: #121212;
   color: #e0e0e0;
   line-height: 1.6;
@@ -17,26 +21,23 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #1f1f1f;
+  background: rgba(0,0,0,0.7);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 15px 30px;
+  z-index: 999;
 }
 
 .navbar .logo {
   font-size: 1.5em;
   font-weight: bold;
-  color: #ffffff;
+  color: white;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
 }
 
 .navbar ul li {
@@ -44,15 +45,14 @@ body {
 }
 
 .navbar ul li a {
-  color: #ffffff;
+  color: white;
   text-decoration: none;
   padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  border-radius: 5px;
 }
 
 .navbar ul li a:hover {
-  background-color: #333333;
+  background: #333;
 }
 
 /* Hero Section */
@@ -60,134 +60,99 @@ body {
   background: url('images/nuclear_background.jpg') no-repeat center center/cover;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 0 20px;
-  color: #ffffff;
+  flex-direction: column;
 }
 
-.hero h1 {
-  font-size: 3em;
-  margin-bottom: 0.5em;
+.fade-in-title {
+  font-size: 3.5em;
+  color: white;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
 }
 
-.hero p {
-  font-size: 1.5em;
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
-/* Content Sections */
-.content {
-  padding: 100px 20px 60px;
-  max-width: 800px;
-  margin: 0 auto;
+/* Sections */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
 }
 
-.content h2 {
-  font-size: 2em;
+.section.text-left .text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.section.text-left .image {
+  flex: 1;
+}
+
+.section.text-top {
+  flex-direction: column;
+}
+
+.section.text-top .text {
   margin-bottom: 20px;
-  border-bottom: 2px solid #444444;
-  padding-bottom: 10px;
 }
 
-.content p,
-.content ul {
-  font-size: 1.1em;
-  margin-bottom: 20px;
-}
-
-.content ul {
-  padding-left: 20px;
-}
-
-.content ul li {
-  margin-bottom: 10px;
-}
-
-/* Images */
-.illustration {
+.image-full .image img {
   width: 100%;
-  max-width: 600px;
-  display: block;
-  margin: 20px auto;
-  border-radius: 8px;
+  height: auto;
 }
 
-.illustration.small {
-  max-width: 300px;
+/* Animations */
+.animate-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.animate-image img {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 1s ease;
+}
+
+.show-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.show-image img {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Quiz Section */
-.quiz {
-  padding: 100px 20px 60px;
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: #1e1e1e;
-  border-radius: 8px;
+.quiz-section {
+  flex-direction: column;
 }
 
-.quiz h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.quiz .question {
-  margin-bottom: 20px;
-}
-
-.quiz .question p {
-  margin-bottom: 10px;
-}
-
-.quiz input[type="radio"] {
-  margin-right: 10px;
-}
-
-.quiz button {
-  display: block;
-  margin: 20px auto;
+button {
   padding: 10px 20px;
-  background-color: #333333;
-  color: #ffffff;
+  background-color: #333;
   border: none;
-  border-radius: 4px;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.quiz button:hover {
-  background-color: #555555;
-}
-
-#result {
-  text-align: center;
-  font-size: 1.2em;
   margin-top: 20px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .navbar ul li {
-    margin: 10px 0;
-  }
-
-  .hero h1 {
-    font-size: 2.5em;
-  }
-
-  .hero p {
-    font-size: 1.2em;
-  }
+button:hover {
+  background-color: #555;
 }
+
+#result {
+  margin-top: 20px;
+  font-size: 1.5em;
+}
+
