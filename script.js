@@ -38,4 +38,3 @@ function checkAnswers() {
     result.style.color = "red";
   }
 }
-
