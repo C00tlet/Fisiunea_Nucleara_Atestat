@@ -155,5 +155,125 @@ button:hover {
   margin-top: 20px;
   font-size: 1.5em;
 }
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-left: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.navbar ul li a:hover {
+  background: #333;
+}
+
+/* Hero Section */
+.hero {
+  background: url('images/nuclear_background.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fade-in-title {
+  font-size: 3.5em;
+  color: white;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Sections */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+}
+
+.section.text-left .text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.section.text-left .image {
+  flex: 1;
+}
+
+.section.text-top {
+  flex-direction: column;
+}
+
+.section.text-top .text {
+  margin-bottom: 20px;
+}
+
+.image-full .image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Animations */
+.animate-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.animate-image img {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 1s ease;
+}
+
+.show-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.show-image img {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Quiz Section */
+.quiz-section {
+  flex-direction: column;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.5em;
+}
 
 
