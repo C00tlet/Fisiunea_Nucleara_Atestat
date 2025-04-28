@@ -55,14 +55,40 @@ body {
   background: #333;
 }
 
+/* Style the video button to match navbar links */
+.navbar ul li button {
+  display: inline-block;
+  background: none; /* Remove default button background */
+  border: none; /* Remove default button border */
+  color: white; /* Match link color */
+  text-decoration: none; /* Remove underline */
+  padding: 8px 12px; /* Match padding of links */
+  border-radius: 5px;/* Match border radius */
+  margin-top: -1px;
+  cursor: pointer; /* Add pointer cursor */
+}
+
+.navbar ul li button:hover {
+  background: #333; /* Match hover background color of links */
+}
+
 /* Hero Section */
 .hero {
-  background: url('https://i.imgur.com/JTTiPa1.jpeg') no-repeat center center/cover;
+  background: url('https://i.imgur.com/JTTiPa1.jpeg') no-repeat center center/cover; /* Default background */
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: opacity 1s ease-in-out, background-image 1s ease-in-out;
+}
+
+.hero.fade-out {
+  opacity: 0; /* Fading out effect */
+}
+
+.hero.fade-in {
+  opacity: 1; /* Fading in effect */
 }
 
 .fade-in-title {
@@ -156,3 +182,36 @@ button:hover {
   font-size: 1.5em;
 }
 
+/* Video Overlay */
+#video-overlay {
+  position: fixed; /* Lock it to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the viewport */
+  height: 100%; /* Full height of the viewport */
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  z-index: 1000; /* Ensure it appears above all other elements */
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Prevent interaction when hidden */
+  transition: opacity 0.5s ease-in-out; /* Smooth fade-in effect */
+}
+
+#video-overlay.show {
+  opacity: 1; /* Make it visible */
+  pointer-events: all; /* Allow interaction */
+}
+
+#overlay-video {
+  max-width: 80%; /* Ensure the video doesn't exceed screen width */
+  max-height: 80%; /* Ensure the video doesn't exceed screen height */
+  border: 2px solid white; /* Optional: Add white border */
+  border-radius: 8px; /* Optional: Rounded corners */
+}
+
+/* Grayscale effect for the entire page */
+body.grayscale {
+  filter: grayscale(100%);
+}
